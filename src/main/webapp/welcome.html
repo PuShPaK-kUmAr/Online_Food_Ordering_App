@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome Page</title>
+<meta charset="UTF-8">
+</head>
+<body>
+	<h1>Food Menu</h1>
+	<form action="CartServlet" method="post"> 
+		<table>
+			<tr>
+				<th>Food Name</th>
+				<th>Price (₹)</th>
+				<th>Quantity</th>
+				<th>Action</th>
+			</tr>
+			<tr>
+				<td>Pizza</td>
+				<td><input type="text" name="pizza_price" value="210" readonly></td>
+				<td><input type="number" name="pizza_quantity"
+					value="1"></td>
+				<td>
+					<button type="submit" name="pizza_submit">
+						<span id="pizza_text">Add to Cart</span>
+					</button> 
+				</td>
+			</tr>
+			<tr>
+				<td>Pasta</td>
+				<td><input type="text" name="pasta_price" value="180" readonly></td>
+				<td><input type="number" name="pasta_quantity" 
+					value="1"></td>
+				<td>
+					<button type="submit" name="pasta_submit">
+						<span id="pasta_text">Add to Cart</span>
+					</button>
+				</td>
+			</tr>
+			<tr>
+				<td>Burger</td>
+				<td><input type="text" name="burger_price" value="100" readonly></td>
+				<td><input type="number" name="burger_quantity" value="1"></td>
+				<td>
+					<button type="submit" name="burger_submit">
+						<span id="burger_text">Add to Cart</span>
+					</button>
+				</td>
+			</tr>
+			<tr>
+				<td>Sandwich</td>
+				<td><input type="text" name="sandwich_price" value="80"
+					readonly></td>
+				<td><input type="number" name="sandwich_quantity" value="1"></td>
+				<td>
+					<button type="submit" name="sandwich_submit">
+						<span id="sandwich_text">Add to Cart</span>
+					</button>
+				</td>
+			</tr>
+			<tr>
+				<td>French Fries</td>
+				<td><input type="text" name="fries_price" value="50" readonly></td>
+				<td><input type="number" name="fries_quantity"
+					value="1"></td>
+				<td>
+					<button type="submit" name="fries_submit">
+						<span id="fries_text">Add to Cart</span>
+					</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+	<form action="CartServlet" method="get">
+		<button type="submit">View Cart</button>
+	</form>
+</body>
+</html>
