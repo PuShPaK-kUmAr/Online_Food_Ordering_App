@@ -1,15 +1,15 @@
-package cart;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 
 /**
  * Servlet implementation class CartServlet
@@ -25,11 +25,12 @@ public class CartServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html; charset=UTF-8");
-		// TODO Auto-generated method stub
+		response.setContentType("text/html");
+		response.setCharacterEncoding("UTF-8");
+
 		String foodName = null;
 		int price = 0;
-		int quantity = 0;
+		int quantity = 0; 
 		String action = null;
 		try {
 			if (request.getParameter("pizza_submit") != null) {
@@ -59,18 +60,20 @@ public class CartServlet extends HttpServlet {
 				action = "Added";
 			}
 
-			CartObj cartItem = new CartObj(foodName, price, quantity, action);
+			CartObj cartItem = new CartObj(foodName, price, quantity, action); 
 
 			// add the CartObj to a list
 			@SuppressWarnings("unchecked")
-			List<CartObj> cartItems = (List<CartObj>) request.getSession().getAttribute("cartItems");
+			List<CartObj> cartItems = (List<CartObj>) (Object) request.getSession().getAttribute("cartItems");
+
 			if (cartItems == null) {
-				cartItems = new ArrayList<CartObj>();
+			    cartItems = new ArrayList<>();
 			}
+
 			cartItems.add(cartItem);
 			request.getSession().setAttribute("cartItems", cartItems);
 
-			// set the "Add to Cart" button to "Added"
+			// set the "Add to Cart" button to "Added" 
 			String buttonName = request.getParameter("pizza_submit");
 			if (buttonName == null) {
 				buttonName = request.getParameter("pasta_submit");

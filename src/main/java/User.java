@@ -1,19 +1,13 @@
 /**
  *
  */
-package user;
+
 
 import java.io.Serializable;
 
-/**
- * @author LENOVO
- *
- */
 
 public class User implements Serializable {
-	/**
-	 *
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private String userName;
 	private String address;
