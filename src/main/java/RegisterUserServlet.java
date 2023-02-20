@@ -44,12 +44,7 @@ public class RegisterUserServlet extends HttpServlet {
 			}
 
 			// Create the user object
-			User user = new User();
-
-			user.setUserName(userName);
-			user.setAddress(address);
-			user.setEmail(email);
-			user.setPassword(password);
+			User user = new User(userName,address,email,password);
 
 			// Store the user object in a session
 			HttpSession session = request.getSession();
